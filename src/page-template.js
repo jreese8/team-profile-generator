@@ -1,129 +1,104 @@
 // create the name section
-const generateProjectName = projectnameText => {
-  if (!projectnameText) {
+const generateManagerName = managerNameText => {
+  if (!managerNameText) {
     return '';
   }
 
-  return `${projectnameText}
+  return `${managerNameText}
   `;
 };
 
-const generateDescription = descriptionText => {
-  if (!descriptionText) {
+const generateManagerId = managerIdText => {
+  if (!managerIdText) {
     return '';
   }
 
-  return `${descriptionText}
+  return `${managerIdText}
   `;
 };
 
-const generateInstallation = installationText => {
-  if (!installationText) {
+const generateManagerEmail = managerEmailText => {
+  if (!managerEmailText) {
     return '';
   }
 
-  return `${installationText}
+  return `${manageremailText}
   `;
 };
 
-const generateUsage = usageText => {
-  if (!usageText) {
+const generateManagerOfficeNumber = managerOfficeNumberText => {
+  if (!managerOfficeNumberText) {
     return '';
   }
 
-  return `${usageText}
+  return `${managerOfficeNumberText}
   `;
 };
 
-const generateCredits = creditsText => {
-  if (!creditsText) {
+const generateEmployeeName = employeeNameText => {
+  if (!employeeNameText) {
     return '';
   }
 
-  return `${creditsText}
+  return `${employeeNameText}
   `;
 };
 
-const generateLicense = licenseText => {
-  if (!licenseText) {
+const generateEmployeeId = employeeIdText => {
+  if (!employeeIdText) {
     return '';
   }
 
-  return `${licenseText}
+  return `${employeeIdText}
   `;
 };
 
-const generateContribute = contributeText => {
-  if (!contributeText) {
+const generateEmployeeEmail = employeeEmailText => {
+  if (!employeeEmailText) {
     return '';
   }
 
-  return `${contributeText}
+  return `${employeeEmailText}
   `;
 };
 
-const generateTests = testsText => {
-  if (!testsText) {
+const generateEmployeeGithub = employeeGithubText => {
+  if (!employeeGithubText) {
     return '';
   }
 
-  return `${testsText}
+  return `${employeeGithubText}
   `;
 };
 
-const generateGithub = githubText => {
-  if (!githubText) {
+const generateEmployeeSchool = employeeSchoolText => {
+  if (!employeeSchoolText) {
     return '';
   }
 
-  return `${githubText}
-  `;
-};
-
-const generateEmail = emailText => {
-  if (!emailText) {
-    return '';
-  }
-
-  return `${emailText}
+  return `${employeeSchoolText}
   `;
 };
 
 module.exports = templateData => {
   // destructure page data by section
-  const { projectname, description, installation, usage, credits, license, contribute, tests, github, email } = templateData;
+  const { managerName, managerId, managerEmail, managerOfficeNumber, employeeName, employeeId, employeeEmail, employeeGithub, employeeSchool } = templateData;
 
-  return `# ${generateProjectName(projectname)}
+  return `${generateManagerName(managerName)}
 
-  ## Description
-  ${generateDescription(description)}
+  ${generateManagerId(managerId)}
 
-  ## Table of Contents
+  ${generateManagerEmail(managerEmail)}
 
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Credits](#credits)
-  - [License](#license)
+  ${generateManagerOfficeNumber(managerOfficeNumber)}
 
-  ## Installation
-  ${generateInstallation(installation)}
+  ${generateEmployeeName(employeeName)}
 
-  ## Usage
-  ${generateUsage(usage)}
+  ${generateEmployeeId(employeeId)}
 
-  ## Credits
-  ${generateCredits(credits)}
+  ${generateEmployeeEmail(employeeEmail)}
 
-  ## License
-  ${generateLicense(license)}
-  - [https://choosealicense.com/]
+  ${generateEmployeeGithub(employeeGithub)}
 
-  ## Contribute
-  ${generateContribute(contribute)}
-
-  ## Tests
-  ${generateTests(tests)}
-
-  ## Questions
-  Please contact ${generateGithub(github)} at ${generateEmail(email)} regarding questions.
+ ${generateEmployeeSchool(employeeSchool)}
 `};
