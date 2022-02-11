@@ -1,3 +1,3 @@
 const Prompts = require('./lib/Prompts');
 
-new Prompts().initializeGame();
+new Prompts().initializePrompts();
