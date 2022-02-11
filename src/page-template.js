@@ -1,4 +1,4 @@
-// create the name section
+// create the manager name section
 const generateManagerName = managerNameText => {
   if (!managerNameText) {
     return '';
@@ -22,7 +22,7 @@ const generateManagerEmail = managerEmailText => {
     return '';
   }
 
-  return `${manageremailText}
+  return `${managerEmailText}
   `;
 };
 
@@ -81,7 +81,7 @@ const generateEmployeeSchool = employeeSchoolText => {
 };
 
 module.exports = templateData => {
-  // destructure page data by section
+  // destructure page data
   const { managerName, managerId, managerEmail, managerOfficeNumber, employeeName, employeeId, employeeEmail, employeeGithub, employeeSchool } = templateData;
 
   return `${generateManagerName(managerName)}

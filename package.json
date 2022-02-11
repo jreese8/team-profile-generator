@@ -4,19 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jreese8/team-profile-generator.git"
+    "url": "git+https://github.com/deckiedevs/team-profile-generator.git"
   },
-  "author": "",
+  "author": "Mila Decker",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jreese8/team-profile-generator/issues"
+    "url": "https://github.com/deckiedevs/team-profile-generator/issues"
   },
-  "homepage": "https://github.com/jreese8/team-profile-generator#readme",
+  "homepage": "https://github.com/deckiedevs/team-profile-generator#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
   "dependencies": {
-    "inquirer": "^8.2.0"
+    "inquirer": "^7.3.3"
   }
 }
