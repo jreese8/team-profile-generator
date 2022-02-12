@@ -1,3 +1,9 @@
-const Prompts = require('./lib/Prompts');
+const { addManager, addEmployee,
+} = require('./lib/Prompts');
 
-new Prompts().initializePrompts();
+// Prompts isn't a class, it contains functions which is why new Prompts().initializePrompts(); wont work.
+function initializePrompts() {
+  addManager().then(addEmployee);
+}
+
+initializePrompts();
