@@ -1,7 +1,8 @@
 const generateManager = function (manager) {
   return `
-  <div class="col-2">
-      <div class="card h-100">
+
+  <div class="col-12 mt-4">
+      
           <div class="card-header">
 
               <h2>Manager</h2>
@@ -10,14 +11,14 @@ const generateManager = function (manager) {
 
           <div class="card-body">
 
-              <p Name: ${manager.name}</p>
-              <p ID: ${manager.id}</p>
-              <p Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
-              <p Office Number: ${manager.officeNumber}</p>
+              <p class="id">Name: ${manager.name}</p>
+              <p class="id">ID: ${manager.id}</p>
+              <p class="email">Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
+              <p class="github">Office Number: ${manager.officeNumber}</p>
 
           </div>
 
-      </div>
+     
   </div>
 
   `;
@@ -26,8 +27,8 @@ const generateManager = function (manager) {
 const generateEngineer = function (engineer) {
   return `
 
-  <div class="col-2">
-      <div class="card h-100">
+  <div class="col-12 mt-4">
+      
           <div class="card-header">
 
               <h2>Engineer</h2>
@@ -43,7 +44,7 @@ const generateEngineer = function (engineer) {
 
           </div>
 
-      </div>
+      
   </div>
   `
 }
@@ -52,8 +53,8 @@ const generateEngineer = function (engineer) {
 const generateIntern = function (intern) {
   return `
 
-  <div class="col-2">
-      <div class="card h-100">
+  <div class="col-12 mt-4">
+      
           <div class="card-header">
 
             <h2>Intern</h2>
@@ -68,7 +69,7 @@ const generateIntern = function (intern) {
               <p class="school">School: ${intern.school}</p>
 
           </div>
-  </div>
+ 
 
 </div>
   `
