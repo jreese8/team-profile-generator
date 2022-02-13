@@ -9,9 +9,8 @@
 
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Credits](#credits)
-  - [License](#license)
-
+  - [Tests](#tests)
+  
 
   ## Installation
   Use git clone in git bash after copying the link at https://github.com/jreese8/team-profile-generator.
