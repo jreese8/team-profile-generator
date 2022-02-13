@@ -1,13 +1,3 @@
-// const { addManager, addEmployee,
-// } = require('./lib/Prompts');
-
-// // Prompts isn't a class, it contains functions which is why new Prompts().initializePrompts(); wont work.
-// function initializePrompts() {
-//   addManager().then(addEmployee);
-// }
-
-// initializePrompts();
-
 const inquirer = require('inquirer');
 
 const fs = require('fs');
@@ -42,12 +32,14 @@ const newManager = () => {
       type: "input",
       name: "id",
       message: "What is the team manager's ID?",
-      validate: idInput => {
-        if (idInput) {
-            return true;
+      validate: idInput => { // isNaN for number validation
+        if (isNaN(idInput)) {
+
+            console.log ("Please enter the manager's ID.")
+            return false; // have to swap true & false fir isNaN
+
         } else {
-            console.log ("Please enter the manager's ID.");
-            return false; 
+            return true; 
         }
       }
     },
@@ -57,7 +49,8 @@ const newManager = () => {
       name: "email",
       message: "What is the team manager's email?",
       validate: emailInput => {
-        if (emailInput) {
+      validate = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput) // validation for email
+        if (validate) {
             return true;
         } else {
             console.log ("Please enter the manager's email.");
@@ -67,19 +60,20 @@ const newManager = () => {
     },
 
     {
-      type: 'input',
-      name: 'officeNumber',
+      type: "input",
+      name: "officeNumber",
       message: "What is the team manager's office number?",
-      validate: nameInput => {
-        if (nameInput) {
-            return true;
+      validate: officeNumberInput => {
+        if (isNaN(officeNumberInput)) {
+
+            console.log ("Please enter the manager's office number.")
+            return false;
+
         } else {
-            console.log ("Please enter the manager's office number.");
-            return false; 
+            return true; 
         }
       }
     },
-
 
   ]).then(managerData => {
     const { name, id, email, officeNumber } = managerData;
@@ -113,7 +107,7 @@ const newEmployee = () => {
           if (nameInput) {
               return true;
           } else {
-              console.log ("Please enter the employee's number.");
+              console.log ("Please enter the employee's name.");
               return false; 
           }
         }
@@ -124,7 +118,7 @@ const newEmployee = () => {
         name: "id",
         message: "What is your employee's ID?",
         validate: idInput => {
-          if (idInput) {
+          if (isNaN(idInput)) {
               return true;
           } else {
               console.log ("Please enter the employee's ID.");
@@ -138,7 +132,8 @@ const newEmployee = () => {
         name: "email",
         message: "What is your employee's email?",
         validate: emailInput => {
-          if (emailInput) {
+          validate = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput)
+          if (validate) {
               return true;
           } else {
               console.log ("Please enter the employee's email.");
@@ -213,18 +208,20 @@ const newEmployee = () => {
 
 const writeFile = fileContent => {
   return new Promise((resolve, reject) => {
-      fs.writeFile('./dist/index.html', fileContent, err => {
+      fs.writeFile("./dist/index.html", fileContent, err => {
           // if there's an error, reject the Promise and send the error to the .catch()
           if (err) {
               reject(err); 
               // return out of the function here to make sure the Promise doesn't execute the resolve() function
               return;
+
+            } else {
+              console.log("Your team profile has been generated. It is located in the dist directory.")
           }
 
           // if everything went well, resolve Promise
           resolve({
               ok: true,
-              message: 'File created!'
           });
       });
   });
